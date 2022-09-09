@@ -58,8 +58,27 @@ Response:
   3. `contract` is used in cross-chain withdrawal and transferring asset to a Mixin Network User, 
      details in [Cross-Chain Withdrawal](/zh/bridge/withdrawal)
 
-
 API Document: <https://developers.mixin.one/docs/api/assets/asset>
+
+[official js sdk](https://github.com/MixinNetwork/bot-api-nodejs-client) example：
+
+```javascript
+import { BridgeApi, MixinApi } from '@mixin.dev/mixin-node-sdk';
+
+const bridgeClient = BridgeApi();
+const address = '';
+const user = await bridgeClient.register({ public_key: address });
+
+const mixinClient = MixinApi({
+  keystore: {
+    ...user,
+    ...user.key,
+  }
+});
+const asset_id = 'c94ac88f-4671-3976-b60a-09064f1811e8'; // XIN
+const asset = await mixinClient.asset.fetch(asset_id);
+console.log(asset.destination); // deposit address
+```
 
 ### 3. POST `/extra`
 

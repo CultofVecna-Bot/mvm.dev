@@ -56,6 +56,26 @@ Bridge 服务的源码等。访问 [https://bridge.mvm.dev/](https://bridge.mvm.
 
 API 文档: <https://developers.mixin.one/docs/api/assets/asset>
 
+[官方 js sdk](https://github.com/MixinNetwork/bot-api-nodejs-client) 代码示例：
+
+```javascript
+import { BridgeApi, MixinApi } from '@mixin.dev/mixin-node-sdk';
+
+const bridgeClient = BridgeApi();
+const address = '';
+const user = await bridgeClient.register({ public_key: address });
+
+const mixinClient = MixinApi({
+  keystore: {
+    ...user,
+    ...user.key,
+  }
+});
+const asset_id = 'c94ac88f-4671-3976-b60a-09064f1811e8'; // XIN
+const asset = await mixinClient.asset.fetch(asset_id);
+console.log(asset.destination); // deposit address
+```
+
 ### 3. POST `/extra`
 
 这个 API 用于生成提现或转账时的 extra。
