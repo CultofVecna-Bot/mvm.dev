@@ -160,4 +160,3 @@ const main = async () => {
 ```
 
 * `receivers` 为转账的账户，给 Mixin User 转账时只填一个该用户的 `client_id` 即可
-* 

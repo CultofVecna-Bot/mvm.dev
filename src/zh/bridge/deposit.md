@@ -12,7 +12,6 @@
   [官方 js sdk](https://github.com/MixinNetwork/bot-api-nodejs-client) 代码示例：
   ```javascript
   import { BridgeApi } from '@mixin.dev/mixin-node-sdk';
-  import { Wallet } from 'ethers';
   
   const bridgeClient = BridgeApi();
   const user = await bridgeClient.register({
